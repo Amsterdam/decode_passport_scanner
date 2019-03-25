@@ -1,6 +1,6 @@
 # Decode Passport Scanner
 
-This Passport Scanner is part of the Decode Amsterdam project. For more extended information check out the [Decode Amsterdam]() repository.
+This Passport Scanner is part of the Decode Amsterdam project. For more extended information check out the [Decode Amsterdam](https://github.com/Amsterdam/decode_amsterdam_pwa) repository.
 
 ![the box image](the_box/the_box_small.jpg)
 
@@ -12,7 +12,7 @@ This project was created as a proof of concept prototype. There for it was never
 In this repository you will find the following:
 
 * Code for communication with different hardware elements
-* Code for communication with the [Decode Session Manager]()
+* Code for communication with the [Decode Session Manager](https://github.com/Amsterdam/decode_session_manager)
 * Documentation for building a physical box to combine all hardware elements 
 
 The code and hardware has only been tested using Ubuntu 18.04.
@@ -24,7 +24,7 @@ There are different hardware elements needed to get the party started.
 
 ### NFC Reader
 
-Before we start it is good to mention there is a specific library being used to handle all the complicated interaction between a NFC scanner and the NFC chip in a passport. This library, PyPassport, needed to be modified slightly in order to work with the NFC readers we had available. This modified version can be found as a submodule of this project and [here](). The library it self is using the standard of Machine Readable Travel Documents (MRTD) as defined in [ICAO Doc 9303](https://www.icao.int/publications/pages/publication.aspx?docnum=9303). 
+Before we start it is good to mention there is a specific library being used to handle all the complicated interaction between a NFC scanner and the NFC chip in a passport. This library, PyPassport, needed to be modified slightly in order to work with the NFC readers we had available. This modified version can be found as a submodule of this project and [here](https://github.com/sguldemond/pypassport). The library it self is using the standard of Machine Readable Travel Documents (MRTD) as defined in [ICAO Doc 9303](https://www.icao.int/publications/pages/publication.aspx?docnum=9303). 
 
 The NFC reader we ended up using is the [ACS ACR1252U-M1](https://www.acs.com.hk/en/products/342/acr1252u-usb-nfc-reader-iii-nfc-forum-certified-reader/), supported by the [CCID driver](https://ccid.apdu.fr/).
 
