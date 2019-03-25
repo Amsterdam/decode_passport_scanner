@@ -1,0 +1,15 @@
+# folders
+.idea/
+.vscode/
+output/
+python2/
+venv/
+
+# files
+mrz.json
+config.py
+
+# file types
+*.pyc
+*.png
+*.jp2
