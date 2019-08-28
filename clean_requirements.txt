@@ -16,7 +16,8 @@ PassportEye==1.2.4
 pdfminer==20140328
 Pillow==5.3.0
 pyasn1==0.4.4
-pycrypto==2.6.1
+# pycrypto==2.6.1 UNSUPPORTED PROJECT, switch to pycryptodome
+pycryptodome
 pyparsing==2.3.0
 pyscard==1.9.7
 pytesseract==0.2.5
