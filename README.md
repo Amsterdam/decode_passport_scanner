@@ -93,7 +93,7 @@ Install the requirements:
 
 Now you can install the modified version of PyPassport:
 ```
-$ git clone https://github.com/landgenoot/pypassport-2.0
+$ git clone https://github.com/sguldemond/pypassport
 $ cd pypassport-2.0
 (venv) $ pip install .
 ```
