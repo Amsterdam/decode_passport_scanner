@@ -62,7 +62,14 @@ In the folder `the_box` you can a Sketch Up file of this render:
 
 All the AutoCAD files (`.dxf`) to laser cut the different pieces are also available there.
 
+## Requirements
 
+- Tesseract for PassportEye OCR:
+```
+# apt install tesseract-ocr
+# apt install libtesseract-dev
+```
+(install guide: https://github.com/tesseract-ocr/tesseract/wiki)
 
 ## Setup
 
@@ -71,18 +78,9 @@ Install virtualenv:
 $ pip install virtualenv
 ```
 
-Find your local python executable:
-```
-$ python -c "import sys; print sys.executable"
-```
-
-Setup new virtualenv using this location:
+Setup and activate Python 2.7 virtual environment:
 ```
 $ virtualenv --python=/usr/bin/python venv
-```
-
-Then activate it:
-```
 $ source venv/bin/activate
 ```
 
@@ -94,21 +92,23 @@ Install the requirements:
 Now you can install the modified version of PyPassport:
 ```
 $ git clone https://github.com/sguldemond/pypassport
-$ cd pypassport-2.0
+$ cd pypassport
 (venv) $ pip install .
 ```
 
 Create config file:
 ```
+$ nano config.py
 ```
-
-Setup Session Manager API:
+Input for file:
 ```
+SERVER_CONFIG = {
+  "dev": "http://localhost:5000",
+  "prod": "https://api.decode.amsterdam"
+}
 ```
-
 
 ## Run
-
 
 ```
 $ python frontend.py
