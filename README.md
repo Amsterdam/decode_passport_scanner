@@ -111,7 +111,7 @@ SERVER_CONFIG = {
 ## Run
 
 ```
-$ python frontend.py
+$ (venv) python frontend.py
 ```
 
 This should start connecting the de Session Manager and eventually show the first screen.
