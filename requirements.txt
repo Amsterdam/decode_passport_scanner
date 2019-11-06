@@ -20,7 +20,7 @@ numpy==1.15.4
 opencv-python==3.4.4.19
 PassportEye==1.2.4
 pdfminer==20140328
-Pillow==6.2.0
+Pillow==6.2.1
 pyasn1==0.4.4
 pycrypto==2.6.1
 pylint==1.9.3
