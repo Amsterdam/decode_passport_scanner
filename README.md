@@ -1,6 +1,6 @@
 # Decode Passport Scanner
 
-![the box image](the_box/the_box_small.jpg)
+![the box image](the_box/the_box_elements.jpg)
 
 In this repository you will find everything you need to create your own Passport Scanner. It could be used stand alone to read data of the NFC chip inside a passport, but it's full potential is to read the data and then make it available from transfer to the [Decode Amsterdam PWA](https://github.com/Amsterdam/decode_amsterdam_pwa).
 
