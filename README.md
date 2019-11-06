@@ -1,13 +1,11 @@
 # Decode Passport Scanner
 
-This Passport Scanner is part of the Decode Amsterdam project. For more extended information check out the [Decode Amsterdam](https://github.com/Amsterdam/decode_amsterdam_pwa) repository.
-
 ![the box image](the_box/the_box_small.jpg)
 
-In this repository you will everything you need to create your own Passport Scanner. It could be used stand alone to read data of the NFC chip inside a passport, but it's full potential is to read the data and then make it available from transfer to the Decode Amsterdam PWA.
+In this repository you will find everything you need to create your own Passport Scanner. It could be used stand alone to read data of the NFC chip inside a passport, but it's full potential is to read the data and then make it available from transfer to the [Decode Amsterdam PWA](https://github.com/Amsterdam/decode_amsterdam_pwa).
 
 **Important note:**
-This project was created as a proof of concept prototype. There for it was never meant to be used on a large scale but for demonstration purposes only.
+This project was created as a proof of concept prototype. There for it was never meant to be used on a large scale but for demonstration purposes only. There are some outdated libraries needed to get ot running, e.g. pycrypto which showes a security message here on GitHub.
 
 In this repository you will find the following:
 
