@@ -18,8 +18,6 @@ The code and hardware has only been tested using Ubuntu 18.04.
 
 ## Hardware
 
-There are different hardware elements needed to get the party started.
-
 ### NFC Reader
 
 Before we start it is good to mention there is a specific library being used to handle all the complicated interaction between a NFC scanner and the NFC chip in a passport. This library, PyPassport, needed to be modified slightly in order to work with the NFC readers we had available. This modified version can be found as a submodule of this project and [here](https://github.com/sguldemond/pypassport). The library it self is using the standard of Machine Readable Travel Documents (MRTD) as defined in [ICAO Doc 9303](https://www.icao.int/publications/pages/publication.aspx?docnum=9303). 
