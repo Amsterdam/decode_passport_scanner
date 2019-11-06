@@ -89,7 +89,7 @@ Install the requirements:
 (venv) $ pip install -r requirements.txt
 ```
 
-Now you can install the modified version of PyPassport:
+Now you can install the modified version of PyPassport (see Appendix for details about the modifications):
 ```
 $ git clone https://github.com/sguldemond/pypassport
 $ cd pypassport
@@ -119,16 +119,53 @@ This should start connecting the de Session Manager and eventually show the firs
 
 ## Appendix
 
-### ICAO Doc 9303
+### PyPassport modifications
 
-The standard around Machine Readable Travel Documents can be found at [here](https://www.icao.int/publications/pages/publication.aspx?docnum=9303)
-
-
-### ePassportViewer
 - [Origin](https://code.google.com/archive/p/pypassport/)
 - [GitHub mirror](https://github.com/andrew867/epassportviewer)
 
-It is supported by the PyPassport python library, which can be found in the same repository.
+The reading of the NFC chip is supported by the PyPassport python library. This project has been actively investigated. It takes some time to get all the needed software installed since main project was last updated 4 years ago. During the development we got stuck at reading the passport information. We eventually made some changes to the source code to get it working.
 
-These projects have been actively investigated. It takes some time to get all the needed software installed since main project was last updated 4 years ago. But the viewer and pypassport library are working.
-We got stuck at reading the passport information.
+Changing protocol from T0 to T1, based on experiments done using [gscriptor](ludovic.rousseau.free.fr/softwares/pcsc-tools/)
+pypassport > reader.py > class PcscReader > def connect: 
+```
+# self._pcsc_connection.connect(self.sc.scard.SCARD_PCI_T0)
+self._pcsc_connection.connect(self.sc.scard.SCARD_PCI_T1)
+```
+
+Adding this line to
+pypassport > doc9303 > mrz.py > class MRZ > def _checkDigitsTD1 & def _checkDigitsTD2:
+```
+mrz = self._mrz
+```
+
+When running the 'EPassport.readPassport' method we came across an error with this message:
+```
+('Data not found:', '6F63')
+```
+This is most likely a merging of the '6F' and '63' which are the locations of DG15 (Public Keys) and DG3 (Finger Print) respectively on the LDS (Logical Data Structure). For some reason these two tags are stored conjoined in the common file, which contains a list of available DG's. This list can be read using 'EPassport.readCom'.
+
+I added this code to 'readCom', which does not yet fix the whole problem:
+```
+# Temp fix for 6F63 Data not found issue
+double_tag = False
+ef_com = self["Common"]["5C"]
+for tag in ef_com:
+  if tag == "6F63":
+  ef_com.append("6F")
+  ef_com.append("63")
+  double_tag = True
+        
+  if double_tag:
+  ef_com.remove("6F63")
+        
+ # print(ef_com)
+ ###
+```
+
+For some reason DG15 returns empty and for DG3 the 'securty status is not satisfied'.
+For now this can be skipped, with the info from DG15 (public keys) the info on the NFC can be varified as valid, but this is not relevant for us at this moment. We also don't need DG3 (Finger Print).
+
+### ICAO Doc 9303
+
+The standard around Machine Readable Travel Documents can be found at [here](https://www.icao.int/publications/pages/publication.aspx?docnum=9303)
