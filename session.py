@@ -38,7 +38,7 @@ class OnboardingSession:
                 print(response)
                 sys.exit(1)
             self.session_id = response.json()['session_id']
-            logging.info("Started session [{}]".format(self.session_id))
+            logging.info("MRTD: Started session [{}]".format(self.session_id))
         except ConnectionError as e:
             logging.error(e)
             logging.info(self.error_message_init)
@@ -51,6 +51,7 @@ class OnboardingSession:
         data = {"session_id": self.session_id}
         try:
             response = requests.post("{0}/{1}".format(self.api_url, 'get_session'), json=data)
+            print(response)
             return response.json()['response']
         except ConnectionError as e:
             logging.error(e)
@@ -71,7 +72,6 @@ class OnboardingSession:
             logging.error(e)
             logging.info(self.error_message_lost)
 
-    # Deprecated
     def get_status(self):
         """
         Get status of the session by its session ID

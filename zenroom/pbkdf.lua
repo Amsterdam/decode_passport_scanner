@@ -1,3 +1,5 @@
+-- Password-Based Key Derivation Function 2
+
 -- symmetric encryption using pbkdf
 
 rng = RNG.new()

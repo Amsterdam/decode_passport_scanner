@@ -3,6 +3,7 @@
 .vscode/
 output/
 python2/
+pypassport/
 venv/
 
 # files
